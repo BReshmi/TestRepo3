@@ -1,0 +1,70 @@
+<aura:component >
+  
+    <aura:attribute name="myHeight" type="String" default="1.0"/>
+    <aura:attribute name="myWeight" type="String" default="1.0"/>
+    
+            
+	<!-- PAGE HEADER -->
+    <lightning:layout class="slds-page-header slds-page-header--object-home">
+        <lightning:layoutItem >
+            <lightning:icon iconName="standard:scan_card" alternativeText="BMI Calculator"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading--label">Calculators</h1>
+                <h2 class="slds-text-heading--medium">BMI Calculator</h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!-- / PAGE HEADER -->
+    <!-- NEW EXPENSE FORM -->
+    <lightning:layout >
+        <lightning:layoutItem padding="around-small" size="6">
+ 
+        <!-- CREATE NEW EXPENSE -->
+<div aria-labelledby="newexpenseform">
+
+    <!-- BOXED AREA -->
+    <fieldset class="slds-box slds-theme--default slds-container--small">
+
+    <legend id="newexpenseform" class="slds-text-heading--small 
+      slds-p-vertical--medium">
+      Add Expense
+    </legend>
+
+    <!-- CREATE NEW EXPENSE FORM -->
+    <form class="slds-form--stacked">          
+          
+        <lightning:input type="number" aura:id="expenseform" label="Height"
+                         name="bmiheight"
+                         min="1"
+                         value="{!v.myHeight}"
+                         messageWhenRangeUnderflow="Enter a valid number"/>
+        <lightning:input type="number" aura:id="expenseform" label="Weight"
+                         name="bmiweight"
+                         min="1"
+                         value="{!v.myWeight}"
+                         messageWhenRangeUnderflow="Enter a valid number."/>
+        
+        
+        <!--ui:outputNumber value="{!(v.myWeight/v.myHeight)/(v.myHeight)}"/>-->
+        <lightning:button label="Create BMI" 
+                          class="slds-m-top--medium"
+                          variant="brand"
+                          onclick="{!c.clickCreate}"/>
+        
+        <ui:outputText aura:id="nameOutput" value=""/>
+    </form>
+    <!-- / CREATE NEW EXPENSE FORM -->
+
+  </fieldset>
+  <!-- / BOXED AREA -->
+
+</div>
+<!-- / CREATE NEW EXPENSE -->
+
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!-- / NEW EXPENSE FORM -->
+
+</aura:component>
