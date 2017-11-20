@@ -1,0 +1,8 @@
+public with sharing class AccountUtils {
+
+     public static List<Account> accountsByState(String state) {
+         List<Account> accounts = [SELECT ID, Name FROM Account WHERE BillingState = :state];
+         
+         return accounts;
+     }
+}

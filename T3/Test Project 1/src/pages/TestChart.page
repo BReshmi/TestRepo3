@@ -1,0 +1,8 @@
+<apex:page >
+    
+    <script src="Chart.js"></script>
+	<script>
+    	var myChart = new Chart({...})
+	</script>
+    
+</apex:page>
